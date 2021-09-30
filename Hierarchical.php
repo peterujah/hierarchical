@@ -1,16 +1,64 @@
 <?php 
+/**
+ * Hierarchical - Light, simple  PHP and mysql Hierarchy data and organization chart
+ * This class was heavily inspired by interview question
+ * @license MIT
+ * @author Peter https://github.com/peterujah
+ * @project https://github.com/peterujah/Hierarchical/
+ */
 class Hierarchical {
-	protected $conn;
-	private $arrayList = array();
-	private $runType = 1;
+	/**
+	* Hold html algorithm code
+	* @var int
+	*/
 	const HTML = 1;
+
+	/**
+	* Hold array algorithm code
+	* @var int
+	*/
 	const LIST = 2;
+
+	/**
+	* Hold google chart algorithm code
+	* @var int
+	*/
 	const CHART = 3;
+
+	/**
+	* Database connection
+	* @var object
+	*/
+	protected $conn;
+
+	/**
+	* Holds current list
+	* @var array
+	*/
+	private $arrayList = array();
+
+	/**
+	* Holds current execution algorithm
+	* @var int
+	*/
+	private $runType = 1;
+	
+	/**
+	* Constructor.
+	* @param $conn mysql connection object
+	* @param int $type execution algorithm type
+	*/
 	public function __construct($conn, $type = 1){
 		$this->conn = $conn;
 		$this->runType = $type;
 	}
-
+    
+	/**
+	* execute command
+	* @param $name string user/person name 
+	* @param $id string user/person account id or referer code
+	* @return mixed data, html, array, json or null
+	*/
 	public function run($name, $id){
 		if($this->runType == self::HTML){
 			return $this->html($name, $id);
@@ -22,6 +70,11 @@ class Hierarchical {
 		return null;
 	}
 
+	/**
+	* Performs a query against the database. 
+	* @param $id string user/person account id or referer code
+	* @return object return a mysqli_result object.
+	*/
 	private function query($id){
 		return mysqli_query($this->conn, "
 			SELECT r.*, u.* 
@@ -35,6 +88,12 @@ class Hierarchical {
 		");
 	}
 
+	/**
+	* build html result
+	* @param $name string user/person name 
+	* @param $id string user/person account id or referer code
+	* @return html data
+	*/
 	private function html($name, $id){
 		$result = $this->query($id);
 		$html = "<h3>".$name."</h3><ul>";
@@ -48,6 +107,13 @@ class Hierarchical {
 		return $html;
 	}
 
+	/**
+	* build array result
+	* @param $name string user/person name 
+	* @param $id string user/person account id or referer code
+	* @param $parent string user/person account id or referer code of the parent referrer
+	* @return array list of array
+	*/
 	private function array($name, $id, $parent){
 		$result = $this->query($id);
 		$addList[$id] = array(
@@ -67,6 +133,12 @@ class Hierarchical {
 		return $this->arrayList;
 	}
 
+	/**
+	* build google chart array list
+	* @param $name string user/person name 
+	* @param $id string user/person account id or referer code
+	* @return json list of json string with ranks
+	*/
 	private function chart($name, $id){
 		$chart = array();
 		foreach($this->array($name, $id, "") as $row){
