@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 29, 2021 at 03:23 PM
+-- Generation Time: Oct 01, 2021 at 12:14 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -42,7 +42,8 @@ INSERT INTO `hierarchical_referrer` (`ref`, `referrer_parent_id`, `referrer_user
 (2, 'vy7735', 'bb7388'),
 (3, 'hk8366', '8117nk'),
 (4, 'hk8366', 'yu6277'),
-(5, 'bb7388', '7hhbba');
+(5, 'bb7388', '7hhbba'),
+(6, '8117nk', 'bg511');
 
 -- --------------------------------------------------------
 
@@ -62,13 +63,14 @@ CREATE TABLE `hierarchical_users` (
 
 INSERT INTO `hierarchical_users` (`sn`, `user_id`, `user_name`) VALUES
 (1, 'vy7735', 'Peter'),
-(2, 'hk8366', 'Kika'),
+(2, 'hk8366', 'Ada'),
 (3, 'bb7388', 'Faith'),
 (4, '8117nk', 'Ibrahim'),
 (5, 'yu6277', 'John'),
 (6, '7hhbba', 'Paul'),
 (7, 'ygb33', 'Joe'),
-(8, 'lopa22', 'Deo');
+(8, 'lopa22', 'Deo'),
+(9, 'bg511', 'Kika');
 
 --
 -- Indexes for dumped tables
@@ -94,13 +96,13 @@ ALTER TABLE `hierarchical_users`
 -- AUTO_INCREMENT for table `hierarchical_referrer`
 --
 ALTER TABLE `hierarchical_referrer`
-  MODIFY `ref` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ref` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `hierarchical_users`
 --
 ALTER TABLE `hierarchical_users`
-  MODIFY `sn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `sn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
