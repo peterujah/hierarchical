@@ -3,7 +3,7 @@
 Hierarchical is a simple php & mysql program to arrange users based on their rankings, it can also be used to represent data in a chain ranking.
 
 
-![alt text](https://github.com/peterujah/Hierarchical/blob/0fbd8458e5a3a838d34da5a898ff9e23e831664e/Screen%20Shot%202021-10-01%20at%206.10.46%20AM.png)
+![alt text](https://github.com/peterujah/Hierarchical/blob/c0fcb5bc6be51763ae3a04d04e56694d682b7ec5/Screen%20Shot%202021-10-01%20at%206.12.50%20AM.png)
 
 # USAGES
 
