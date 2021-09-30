@@ -1,4 +1,5 @@
 <?php 
+namespace PeterUjah;
 /**
  * Hierarchical - Light, simple  PHP and mysql Hierarchy data and organization chart
  * This class was heavily inspired by interview question
