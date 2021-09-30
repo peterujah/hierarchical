@@ -1,6 +1,6 @@
 # PHP Hierarchical 
 
-Hierarchical is a simple php program to arrange users based on their rankings, it can also be used to represent data in a chain ranking.
+Hierarchical is a simple php & mysql program to arrange users based on their rankings, it can also be used to represent data in a chain ranking.
 
 
 # USAGES
@@ -8,11 +8,20 @@ Hierarchical is a simple php program to arrange users based on their rankings, i
 Hierarchical can be use as an array, html or google organizations chart
 
   ```php 
+  use PeterUjah\Hierarchical;
   $hierarchy = new Hierarchical($conn, Hierarchical::LIST);
   $hierarchy = new Hierarchical($conn, Hierarchical::HTML);
   $hierarchy = new Hierarchical($conn, Hierarchical::CHART);
   ```
   
+  Dump array 
+  
+   ```php 
+   $hierarchy = new Hierarchical($conn, Hierarchical::LIST);
+   var_export($hierarchy->run("Peter", "vy7735"));
+   ```
+   
+   Display on google Organisation chart
   
   ```js
   google.charts.load('current', {packages:["orgchart"]});
