@@ -25,7 +25,7 @@ Hierarchical can be use as an array, html or google organizations chart
    
    Display on google Organisation chart
   
-  ```js
+  ```javascript
   google.charts.load('current', {packages:["orgchart"]});
 	google.charts.setOnLoadCallback(drawChart);
 	function drawChart() {
