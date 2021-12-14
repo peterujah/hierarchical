@@ -1,9 +1,17 @@
 # PHP Hierarchical 
 
 Hierarchical is a simple php & mysql program to arrange users based on their rankings, it can also be used to represent data in a chain ranking.
+This libery will work very well with Google Organisation chart
 
 
 ![alt text](https://github.com/peterujah/Hierarchical/blob/c0fcb5bc6be51763ae3a04d04e56694d682b7ec5/Screen%20Shot%202021-10-01%20at%206.12.50%20AM.png)
+
+## Installation
+
+Installation is super-easy via Composer:
+```md
+composer require peterujah/hierarchical
+```
 
 # USAGES
 
@@ -37,5 +45,15 @@ Hierarchical can be use as an array, html or google organizations chart
       var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
       chart.draw(data, {'allowHtml':true});
 }
+```
+
+Initalisation options `new Hierarchical($conn, Hierarchical::CHART)`
+
+| Methods         | Description                                                                         |
+|-----------------|-------------------------------------------------------------------------------------|
+| LIST            | Retrieve result as an array                                                         |
+| HTML            | Retrieve result in HTML list                                                        |
+| CHART           | Retrieve result in json data for google chart                                       |
+
   
   ```
