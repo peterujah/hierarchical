@@ -1,7 +1,7 @@
 {
     "name": "peterujah/hierarchical",
     "type": "library",
-    "description": "Php advance search class for mysql database.",
+    "description": "Hierarchical - Light, simple PHP and mysql Hierarchy data and organization chart.",
     "license": "MIT",
     "authors": [
         {
