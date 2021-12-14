@@ -55,5 +55,3 @@ Initalisation options `new Hierarchical($conn, Hierarchical::CHART)`
 | HTML            | Retrieve result in HTML list                                                        |
 | CHART           | Retrieve result in json data for google chart                                       |
 
-  
-  ```
