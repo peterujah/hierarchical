@@ -13,7 +13,7 @@
         "php": "^7.0 || ^8.0"
     },
     "require-dev": {
-        "peterujah/hierarchical": "^0.1.0"
+        "peterujah/hierarchical": "^0.1"
     },
     "scripts": {
         "post-install-cmd": [
