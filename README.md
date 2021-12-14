@@ -10,7 +10,7 @@ Hierarchical is a simple php & mysql program to arrange users based on their ran
 Hierarchical can be use as an array, html or google organizations chart
 
   ```php 
-  use PeterUjah\Hierarchical;
+  use Peterujah\NanoBlock\Hierarchical;
   $hierarchy = new Hierarchical($conn, Hierarchical::LIST);
   $hierarchy = new Hierarchical($conn, Hierarchical::HTML);
   $hierarchy = new Hierarchical($conn, Hierarchical::CHART);
