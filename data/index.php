@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
 include_once __DIR__ . "/conn.php";
-include_once __DIR__ . "/Hierarchical.php";
+include_once __DIR__ . "/../src/Hierarchical.php";
 $hierarchy = new Hierarchical($conn, Hierarchical::CHART);
 /*
  When a user has logged in
