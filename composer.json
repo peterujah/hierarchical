@@ -1,0 +1,39 @@
+{
+    "name": "peterujah/hierarchical",
+    "type": "library",
+    "description": "Php advance search class for mysql database.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ujah Chigozie",
+            "email": "ujahchigozie@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0 || ^8.0"
+    },
+    "require-dev": {
+        "peterujah/hierarchical": "^0.1.0"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "PeterUjah\\CopyFile\\ScriptHandler::copy"
+        ],
+        "post-update-cmd": [
+            "PeterUjah\\CopyFile\\ScriptHandler::copy"
+        ]
+    },
+     "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": { 
+            "Peterujah\\NanoBlock\\": "src/" 
+        }
+    },
+    
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
