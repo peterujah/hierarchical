@@ -1,0 +1,9 @@
+{
+  "name": "@peterujah/hierarchical",
+  "description": "Hierarchical - Light, simple PHP and mysql Hierarchy data and organization chart.",
+  "version": "0.1.0",
+  "homepage": "http://github.com/peterujah/hierarchical",
+  "repository": "git://github.com/peterujah/hierarchical.git",
+  "author": "Ujah Chigozie <ujahchigozie@gmail.com>",
+  "license": "MIT"
+}
