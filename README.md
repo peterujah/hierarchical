@@ -49,7 +49,7 @@ Hierarchical can be use as an array, html or google organizations chart
 
 Initalisation options `new Hierarchical($conn, Hierarchical::CHART)`
 
-| Methods         | Description                                                                         |
+| Options         | Description                                                                         |
 |-----------------|-------------------------------------------------------------------------------------|
 | LIST            | Retrieve result as an array                                                         |
 | HTML            | Retrieve result in HTML list                                                        |
