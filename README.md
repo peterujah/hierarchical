@@ -1,7 +1,10 @@
 # PHP Hierarchical 
 
-Hierarchical is a simple php & mysql program to arrange users based on their rankings, it can also be used to represent data in a chain ranking.
-This libery will work very well with Google Organisation chart
+Hierarchies represent relations between people or other types of related entities. The hierarchy structure determines which entities are in command of other entities.
+
+Hierarchies can be stored in databases using table records that express what entities are below or above in the hierarchy tree.
+
+This class can retrieve a hierarchy tree structure from a MySQL database table to easily visualize using the Google Organisation Chart API, Array or HTML.
 
 
 ![alt text](https://github.com/peterujah/Hierarchical/blob/c0fcb5bc6be51763ae3a04d04e56694d682b7ec5/Screen%20Shot%202021-10-01%20at%206.12.50%20AM.png)
