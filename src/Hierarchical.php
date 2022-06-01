@@ -12,67 +12,70 @@ namespace Peterujah\NanoBlock;
  * Class Hierarchical.
  */
 class Hierarchical {
-    /**
-     * Hold html algorithm code
-     *
-     * @var int
-     */
-    public const HTML = 1;
+	/**
+	* Hold html algorithm code
+	* @var int
+	*/
+	public const HTML = 1;
 
-    /**
-     * Hold array algorithm code
-     *
-     * @var int
-     */
+	/**
+	* Hold array algorithm code
+	* @var int
+	*/
 	 public const DATA = 2;
 
-    /**
-     * Hold google chart algorithm code
-     *
-     * @var int
-     */
+	/**
+	* Hold google chart algorithm code
+	* @var int
+	*/
 	public const CHART = 3;
 
-    /**
-     * Database connection
-     * @var object
-     */
+	/**
+	* Database connection
+	* @var object
+	*/
 	protected $conn;
 
-    /**
-     * Holds current list
-     * @var array
-     */
+	/**
+	* Holds current list
+	* @var array
+	*/
 	private $arrayList = array();
 
-    /**
-     * Holds current execution algorithm
-     * @var int
-     */
+	/**
+	* Holds current execution algorithm
+	* @var int
+	*/
 	private $runType = 1;
 	
 	/**
-     * Holds current record count
-     * @var int
-     */
+	* Holds current record count
+	* @var int
+	*/
 	private $totalRecord = 0;
 
 	/**
-     * Constructor.
-     * @param $conn mysql connection object
-     * @param int $type execution algorithm type
-     */
+	* Hold last added userid
+	* @var string
+	*/
+	private $lastInserted = null;
+
+	/**
+	* Constructor.
+	* @param $conn mysql connection object
+	* @param int $type execution algorithm type
+	*/
 	public function __construct($conn, $type = 1){
 		$this->conn = $conn;
 		$this->runType = $type;
 	}
     
-    /**
-     * execute command
-     * @param $name string user/person name 
-     * @param $id string user/person account id or referer code
-     * @return mixed data, html, array, json or null
-    */
+	/**
+	* execute command
+	* @param $name string user/person name 
+	* @param $id string user/person account id or referer code
+	* @return mixed data, html, array, json or null
+	*/
 	public function run($name, $id){
 		if($this->runType == self::HTML){
 			return $this->html($name, $id);
@@ -84,11 +87,11 @@ class Hierarchical {
 		return null;
 	}
 
-    /**
-     * Performs a query against the database. 
-     * @param $id string user/person account id or referer code
-     * @return object return a mysqli_result object.
-    */
+	/**
+	* Performs a query against the database. 
+	* @param $id string user/person account id or referer code
+	* @return object return a mysqli_result object.
+	*/
 	private function query($id){
 		return mysqli_query($this->conn, "
 			SELECT r.*, u.* 
@@ -98,6 +101,51 @@ class Hierarchical {
 			WHERE r.referrer_parent_id = '{$id}'
 			ORDER BY r.ref DESC
 		");
+	}
+	
+	/**
+	* Add's new user to users table
+	* @param $user string the userid or any unique identifier  
+	* @param $name string The user display name 
+	* @return Object $this
+	*/
+	public function add($user, $name){
+		if(mysqli_query($this->conn, "
+			INSERT INTO hierarchical_users (
+				`user_id`, 
+				`user_name`
+			)
+			VALUES (
+				{$user}
+				{$name}
+			)
+		")){
+			$this->lastInserted = $user;
+		}
+		return $this;
+	}
+	
+	/**
+	* Assign's the last added user to a position  
+	* @param $boss string the parent boss who this current user will be under
+	* @return bool after it has been added
+	*/
+	public function under($boss){
+		$added = false;
+		if(!empty($this->lastInserted)){
+			$added = mysqli_query($this->conn, "
+				INSERT INTO hierarchical_referrer (
+					`referrer_parent_id`, 
+					`referrer_user_id`
+				)
+				VALUES (
+					{$boss}
+					{$this->lastInserted}
+				)
+			");
+		}
+		$this->lastInserted = null;
+		return $added;
 	}
 
     /**
