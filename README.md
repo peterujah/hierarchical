@@ -27,6 +27,12 @@ Hierarchical can be use as an array, html or google organizations chart
   $hierarchy = new Hierarchical($conn, Hierarchical::CHART);
   ```
   
+  Assign new user to a position
+  
+  ```php
+   $hierarchy->add("foo22", "Foo")->under("vy7735");
+   ```
+  
   Dump array 
   
    ```php 
