@@ -2,6 +2,7 @@
     "name": "peterujah/hierarchical",
     "type": "library",
     "description": "Hierarchical - Light, simple PHP and mysql Hierarchy data and organization chart.",
+     "homepage": "https://github.com/peterujah/hierarchical",
     "keywords": [
         "library",
         "php class",
@@ -23,10 +24,8 @@
     "require": {
         "php": "^7.0 || ^8.0"
     },
-     "extra": {
-        "branch-alias": {
-            "dev-master": "1.2-dev"
-        }
+     "archive": {
+      "exclude": ["data/*", "Screen Shot 2021-10-01 at 6.12.50 AM.png"]
     },
     "autoload": {
         "psr-4": { 
